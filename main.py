@@ -1,13 +1,23 @@
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
+import random
 
 pm = ProductManager()
 
-p1 = Product("Tv", 2000, 5)
+pm.add_product(Product("Laptop", 1000, 5))
+pm.add_product(Product("Telefon", 500, 10))
+pm.add_product(Product("Casti", 100, 20))
+pm.add_product(Product("Mouse", 50, 30))
 
-p3 = Product("Mouse", 200, 20)
+cart = Cart()
 
-pm.add_product(p1)
+products = pm.products
+selected_products = random.sample(products, 3)
 
-pm.add_product(p3)
+for product in selected_products:
+    cart.add_to_cart(product)
+
+cart.display_cart()
+print("Total de plata:", cart.total_price())
 
