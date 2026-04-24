@@ -15,4 +15,7 @@ class ProductManager:
         total = 0
         for product in self.products:
             total += product.price * product.quantity
-        return total
+        return total   
+    
+    def remove_product(self, name):
+        self.products = [p for p in self.products if p.name != name]
